@@ -17,6 +17,8 @@ jobs:
         sudo git clone --depth 1 --branch android-4.4.4_r2.0.1 --single-branch https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7 /opt/toolchains/arm-eabi-4.7/
     - name: Building Kernel
       run: |
+        export KBUILD_BUILD_USER=notnoelchannel
+        export KBUILD_BUILD_HOST=notnoelchannel
         make -j2 cyanogen_jf_defconfig
         make -j32
     - name: Moving Output # CI only
